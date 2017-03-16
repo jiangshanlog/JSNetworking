@@ -1,5 +1,5 @@
 //
-//  NSDictionary+JSNetworkingMethods.h
+//  NSObject+JSNetworkingMethods.h
 //  JSNetworking
 //
 //  Created by Nick on 2017/3/16.
@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDictionary (JSNetworkingMethods)
+@interface NSObject (JSNetworkingMethods)
+
+- (id)JS_defaultValue:(id)defaultData;
+- (BOOL)JS_isEmptyObject;
 
 @end
