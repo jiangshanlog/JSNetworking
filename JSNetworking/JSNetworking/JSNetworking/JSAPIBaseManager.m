@@ -82,7 +82,7 @@ NSString * const kJSUserTokenNotificationUserInfoKeyManagerToContinue = @"kJSUse
     [self.requestIdList removeAllObjects];
 }
 
-- (void)cancelRequestWithRequestId:(NSInteger)requestID
+- (void)cancelRequestWithRequestID:(NSInteger)requestID
 {
     [self removeRequestIdWithRequestID:requestID];
     [[JSApiProxy shareInstance] cancelRequestWithRequestID:@(requestID)];
