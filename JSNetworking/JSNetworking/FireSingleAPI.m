@@ -1,9 +1,9 @@
 //
 //  FireSingleAPI.m
-//  CTNetworking
+//  JSNetworking
 //
-//  Created by casa on 15/12/31.
-//  Copyright © 2015年 casa. All rights reserved.
+//  Created by Nick on 2017/3/20.
+//  Copyright © 2017年 Nick. All rights reserved.
 //
 
 #import "FireSingleAPI.h"
@@ -12,7 +12,6 @@
 @interface FireSingleAPI () <JSAPIManagerParamSource, JSAPIManagerCallBackDelegate>
 
 @property (nonatomic, strong) TestAPIManager *testAPIManager;
-@property (nonatomic, strong) UILabel *resultLable;
 
 @end
 
@@ -22,25 +21,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.resultLable];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self layoutResultLable];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [self.testAPIManager loadData];
-}
-
-- (void)layoutResultLable
-{
-    [self.resultLable sizeToFit];
 }
 
 #pragma mark - CTAPIManagerParamSource
@@ -63,16 +54,14 @@
 {
     NSLog(@"%@",data);
     if (manager == self.testAPIManager) {
-        self.resultLable.text = @"success";
-        [self layoutResultLable];
+
     }
 }
 
 - (void)managerCallAPIDidFailed:(JSAPIBaseManager *)manager idForObject:(id)data
 {
     if (manager == self.testAPIManager) {
-        self.resultLable.text = @"fail";
-        [self layoutResultLable];
+
     }
 }
 
@@ -87,13 +76,5 @@
     return _testAPIManager;
 }
 
-- (UILabel *)resultLable
-{
-    if (_resultLable == nil) {
-        _resultLable = [[UILabel alloc] init];
-        _resultLable.text = @"loading API...";
-    }
-    return _resultLable;
-}
 
 @end
