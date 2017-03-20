@@ -29,6 +29,9 @@
 		C56647A21E7A9B2F00A5566A /* JSRequestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C56647A11E7A9B2F00A5566A /* JSRequestGenerator.m */; };
 		C56647A61E7A9B9300A5566A /* JSSignatureGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C56647A51E7A9B9300A5566A /* JSSignatureGenerator.m */; };
 		C56647AA1E7A9C7400A5566A /* JSUDIDGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C56647A91E7A9C7400A5566A /* JSUDIDGenerator.m */; };
+		C56647F91E7FB31F00A5566A /* FireSingleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C56647F81E7FB31F00A5566A /* FireSingleAPI.m */; };
+		C56648001E7FB36300A5566A /* TestCaseFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C56647FF1E7FB36300A5566A /* TestCaseFactory.m */; };
+		C56648031E7FB36C00A5566A /* TestAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C56648021E7FB36C00A5566A /* TestAPIManager.m */; };
 		C584C3241E78031500FD6F4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C584C3231E78031500FD6F4D /* main.m */; };
 		C584C3271E78031500FD6F4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C584C3261E78031500FD6F4D /* AppDelegate.m */; };
 		C584C32A1E78031500FD6F4D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C584C3291E78031500FD6F4D /* ViewController.m */; };
@@ -102,6 +105,13 @@
 		C56647A51E7A9B9300A5566A /* JSSignatureGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSignatureGenerator.m; sourceTree = "<group>"; };
 		C56647A81E7A9C7400A5566A /* JSUDIDGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSUDIDGenerator.h; sourceTree = "<group>"; };
 		C56647A91E7A9C7400A5566A /* JSUDIDGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSUDIDGenerator.m; sourceTree = "<group>"; };
+		C56647F71E7FB31F00A5566A /* FireSingleAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FireSingleAPI.h; sourceTree = "<group>"; };
+		C56647F81E7FB31F00A5566A /* FireSingleAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FireSingleAPI.m; sourceTree = "<group>"; };
+		C56647FA1E7FB33100A5566A /* CommonHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonHeader.h; sourceTree = "<group>"; };
+		C56647FE1E7FB36300A5566A /* TestCaseFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCaseFactory.h; sourceTree = "<group>"; };
+		C56647FF1E7FB36300A5566A /* TestCaseFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCaseFactory.m; sourceTree = "<group>"; };
+		C56648011E7FB36C00A5566A /* TestAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAPIManager.h; sourceTree = "<group>"; };
+		C56648021E7FB36C00A5566A /* TestAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAPIManager.m; sourceTree = "<group>"; };
 		C584C31F1E78031500FD6F4D /* JSNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C584C3231E78031500FD6F4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C584C3251E78031500FD6F4D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -363,6 +373,13 @@
 				C584C3261E78031500FD6F4D /* AppDelegate.m */,
 				C584C3281E78031500FD6F4D /* ViewController.h */,
 				C584C3291E78031500FD6F4D /* ViewController.m */,
+				C56647FA1E7FB33100A5566A /* CommonHeader.h */,
+				C56648011E7FB36C00A5566A /* TestAPIManager.h */,
+				C56648021E7FB36C00A5566A /* TestAPIManager.m */,
+				C56647FE1E7FB36300A5566A /* TestCaseFactory.h */,
+				C56647FF1E7FB36300A5566A /* TestCaseFactory.m */,
+				C56647F71E7FB31F00A5566A /* FireSingleAPI.h */,
+				C56647F81E7FB31F00A5566A /* FireSingleAPI.m */,
 				C584C32B1E78031500FD6F4D /* Main.storyboard */,
 				C584C32E1E78031500FD6F4D /* Assets.xcassets */,
 				C584C3301E78031500FD6F4D /* LaunchScreen.storyboard */,
@@ -679,6 +696,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C56647F91E7FB31F00A5566A /* FireSingleAPI.m in Sources */,
 				C56647851E7A8B1200A5566A /* JSApiProxy.m in Sources */,
 				C56647811E7A84DB00A5566A /* JSAPIBaseManager.m in Sources */,
 				C584C32A1E78031500FD6F4D /* ViewController.m in Sources */,
@@ -687,6 +705,7 @@
 				C56647A21E7A9B2F00A5566A /* JSRequestGenerator.m in Sources */,
 				C56647741E7A7F7300A5566A /* NSString+JSNetworkingMethods.m in Sources */,
 				C56647A61E7A9B9300A5566A /* JSSignatureGenerator.m in Sources */,
+				C56648031E7FB36C00A5566A /* TestAPIManager.m in Sources */,
 				C584C3271E78031500FD6F4D /* AppDelegate.m in Sources */,
 				C56647961E7A922A00A5566A /* JSCachedObject.m in Sources */,
 				C56647751E7A7F7300A5566A /* NSURLRequest+JSNetworkingMethods.m in Sources */,
@@ -694,6 +713,7 @@
 				C56647711E7A7F7300A5566A /* NSDictionary+JSNetworkingMethods.m in Sources */,
 				C56647701E7A7F7300A5566A /* NSArray+JSNetworkingMethods.m in Sources */,
 				C56647721E7A7F7300A5566A /* NSMutableString+JSNetworkingMethods.m in Sources */,
+				C56648001E7FB36300A5566A /* TestCaseFactory.m in Sources */,
 				C584C3241E78031500FD6F4D /* main.m in Sources */,
 				C56647911E7A8F6B00A5566A /* JSCommonService.m in Sources */,
 				C56647891E7A8BF400A5566A /* JSService.m in Sources */,

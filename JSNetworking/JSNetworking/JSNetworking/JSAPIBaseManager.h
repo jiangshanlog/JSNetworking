@@ -21,8 +21,8 @@ static NSString * const kCTAPIBaseManagerRequestID = @"kCTAPIBaseManagerRequestI
 //api回调
 @protocol JSAPIManagerCallBackDelegate <NSObject>
 @required
-- (void)managerCallAPIDidSuccess:(JSAPIBaseManager *)manager;
-- (void)managerCallAPIDidFailed:(JSAPIBaseManager *)manager;
+- (void)managerCallAPIDidSuccess:(JSAPIBaseManager *)manager idForObject:(id)data;
+- (void)managerCallAPIDidFailed:(JSAPIBaseManager *)manager idForObject:(id)data;
 @end
 
 /*************************************************************************************************/

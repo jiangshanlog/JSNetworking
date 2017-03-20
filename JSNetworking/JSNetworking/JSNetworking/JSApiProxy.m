@@ -26,14 +26,14 @@ static NSString * const kJSApiProxyDispatchItemKeyCallbackFail = @"kJSApiProxyDi
 
 @implementation JSApiProxy
 
-+ (instancetype)sharedInstance
++ (instancetype)shareInstance
 {
     static dispatch_once_t onceToken;
-    static JSApiProxy *sharedInstance = nil;
+    static JSApiProxy *shareInstance = nil;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[JSApiProxy alloc] init];
+        shareInstance = [[JSApiProxy alloc] init];
     });
-    return sharedInstance;
+    return shareInstance;
 }
 
 #pragma mark - public methods
@@ -84,6 +84,16 @@ static NSString * const kJSApiProxyDispatchItemKeyCallbackFail = @"kJSApiProxyDi
     dataTask = [self.sessionManager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         NSNumber *requestID = @([dataTask taskIdentifier]);
         [self.dispatchTable removeObjectForKey:requestID];
+        NSData *responseData = responseObject;
+        NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+        
+        if (error) {
+            JSURLResponse *JSResponse = [[JSURLResponse alloc] initWithResponseString:responseString requestId:requestID request:request responseData:responseData error:error];
+            fail?fail(JSResponse):nil;
+        } else {
+            JSURLResponse *JSResponse = [[JSURLResponse alloc] initWithResponseString:responseString requestId:requestID request:request responseData:responseData status:JSURLResponseStatusSuccess];
+            success?success(JSResponse):nil;
+        }
     }];
     
     NSNumber *requestId = @([dataTask taskIdentifier]);
@@ -94,5 +104,24 @@ static NSString * const kJSApiProxyDispatchItemKeyCallbackFail = @"kJSApiProxyDi
     return requestId;
 }
 
+#pragma mark - getters and setters
+- (NSMutableDictionary *)dispatchTable
+{
+    if (_dispatchTable == nil) {
+        _dispatchTable = [[NSMutableDictionary alloc] init];
+    }
+    return _dispatchTable;
+}
+
+- (AFHTTPSessionManager *)sessionManager
+{
+    if (_sessionManager == nil) {
+        _sessionManager = [AFHTTPSessionManager manager];
+        _sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        _sessionManager.securityPolicy.allowInvalidCertificates = YES;
+        _sessionManager.securityPolicy.validatesDomainName = NO;
+    }
+    return _sessionManager;
+}
 
 @end

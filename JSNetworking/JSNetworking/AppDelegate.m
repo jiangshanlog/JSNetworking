@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "FireSingleAPI.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    FireSingleAPI *test = [[FireSingleAPI alloc]init];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:test];
+    self.window.rootViewController = nav;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

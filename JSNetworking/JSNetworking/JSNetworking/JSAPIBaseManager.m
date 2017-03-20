@@ -179,13 +179,13 @@ NSString * const kJSUserTokenNotificationUserInfoKeyManagerToContinue = @"kJSUse
         if ([self beforePerformSuccessWithResponse:response]) {
             if ([self.child shouldLoadFromNative]) {
                 if (response.isCache == YES) {
-                    [self.delegate managerCallAPIDidSuccess:self];
+                    [self.delegate managerCallAPIDidSuccess:self idForObject:self.fetchedRawData];
                 }
                 if (self.isNativeDataEmpty) {
-                    [self.delegate managerCallAPIDidSuccess:self];
+                    [self.delegate managerCallAPIDidSuccess:self idForObject:self.fetchedRawData];
                 }
             } else {
-                [self.delegate managerCallAPIDidSuccess:self];
+                [self.delegate managerCallAPIDidSuccess:self idForObject:self.fetchedRawData];
             }
         }
         [self afterPerformSuccessWithResponse:response];
@@ -226,7 +226,7 @@ NSString * const kJSUserTokenNotificationUserInfoKeyManagerToContinue = @"kJSUse
         self.errorType = errorType;
         [self removeRequestIdWithRequestID:response.requestId];
         if ([self beforePerformFailWithResponse:response]) {
-            [self.delegate managerCallAPIDidFailed:self];
+            [self.delegate managerCallAPIDidFailed:self idForObject:self.fetchedRawData];
         }
         [self afterPerformFailWithResponse:response];
     }
