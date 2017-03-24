@@ -24,7 +24,8 @@ __strong typeof(weakSelf) strongSelf = weakSelf;                                
 }];                                                                                         \
 [self.requestIdList addObject:@(REQUEST_ID)];                                               \
 }
-
+NSString * const kTestAPIManagerParamsKeyLatitude = @"kTestAPIManagerParamsKeyLatitude";
+NSString * const kTestAPIManagerParamsKeyLongitude = @"kTestAPIManagerParamsKeyLongitude";
 NSString * const kJSUserTokenInvalidNotification = @"kJSUserTokenInvalidNotification";
 NSString * const kJSUserTokenIllegalNotification = @"kJSUserTokenIllegalNotification";
 
@@ -148,7 +149,13 @@ NSString * const kJSUserTokenNotificationUserInfoKeyManagerToContinue = @"kJSUse
 }
 
 - (NSDictionary *)reformParams:(NSDictionary *)params {
-    return params;
+
+        NSMutableDictionary *resultParams = [[NSMutableDictionary alloc] init];
+        resultParams[@"key"] = [[JSServiceFactory sharedInstance] serviceWithIdentifier:kJSAPI].publicKey;
+        resultParams[@"location"] = [NSString stringWithFormat:@"%@,%@", params[kTestAPIManagerParamsKeyLongitude], params[kTestAPIManagerParamsKeyLatitude]];
+        resultParams[@"output"] = @"json";
+        return resultParams;
+
 }
 
 #pragma mark - api callbacks
